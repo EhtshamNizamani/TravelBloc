@@ -10,12 +10,12 @@ class AppCubits extends Cubit<CubitState> {
     emit(WelcomeState());
   }
   final DataServices data;
-
+  late final places;
   void getDataList() async {
     try {
       emit(LoadingState());
 
-      var places = await data.getInfo();
+       places = await data.getInfo();
       emit(LoadedState(places));
     } catch (e) {
       print(e);
@@ -25,5 +25,9 @@ class AppCubits extends Cubit<CubitState> {
   void getData(DataModel data) {
     print(data);
     emit(DetailState(data));
+  }
+
+  goHome() {
+    emit(LoadedState(places));
   }
 }

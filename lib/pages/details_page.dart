@@ -49,7 +49,9 @@ class _DetailsPageState extends State<DetailsPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              BlocProvider.of<AppCubits>(context).goHome();
+                            },
                             icon: const Icon(
                               Icons.menu,
                               color: Colors.white70,
